@@ -13,13 +13,9 @@
         <Person />
     </div>
 </template>
-<script lang="ts">
+<script lang="ts" setup name="App">
 import Person from './components/Person.vue';
-export default {
-    components: {
-        Person
-    }
-}
+
 </script>
 <style scoped>
 .testdiv {
