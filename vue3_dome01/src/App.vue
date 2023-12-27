@@ -1,47 +1,31 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
+<!--
+ * @Author: xie 1434687824@qq.com
+ * @Date: 2023-12-25 17:36:05
+ * @LastEditors: xie 1434687824@qq.com
+ * @LastEditTime: 2023-12-26 18:43:31
+ * @FilePath: \vue3_dome01\src\App.vue
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+    <div>
+        <div class="testdiv">niaho</div>
+        <h1>jslafk</h1>
+        <Person />
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
 </template>
-
+<script lang="ts">
+import Person from './components/Person.vue';
+export default {
+    components: {
+        Person
+    }
+}
+</script>
 <style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+.testdiv {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    color: red;
 }
 </style>

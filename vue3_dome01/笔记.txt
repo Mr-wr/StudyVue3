@@ -1,12 +1,45 @@
 文件标注：
 env.d.ts=======================>告诉vue中有ts
-
-
-
-
-
-
-
+一、ref和reactive的区别
+1、ref可以对象，但是vule里面也是用proxy来代理的
+2、reactive不可以替换重新分配一个新对象，
+（会失去响应式可以使用Object.assign去整体替换）
+ref可以使用.vule = {}替换也是响应的
+============
+二、计算属性有缓存，多个计算属性展示，计算属性只会调用一次
+计算属性也是ref类型的
+要使用.vule改变值
+let fullPerson = computed({
+    get() {
+        return (indexa: number) => {
+            return testArray[indexa].name + ' ' + indexa + testArray[indexa].age
+        }
+    },
+    set(val) {
+        return val
+    }
+})
+fullPerson.vule = '改变计算属性的值'
+三、监听watch
+1、watch
+监听对象时，要加deep,只改变对象的属性，拿到的旧值还是新的，因为地址还是指向了那个对象，只有改变了对象才会改变
+关于deep的如果一个要监视全部一个不要监视全部
+immediate: true立即执行一次
+let testwatchrefstop = watch(testwatchref, (n, o) => {
+    console.log("🚀 ~ file: Person.vue:43watch ~ n,o", n, o)
+    if (n.age > 25) {
+        testwatchrefstop()
+    }
+}, { deep: true, immediate: true })
+2、watchEffect
+可以不用具体写监听谁他会自己找监听内容
+let testWeatchEffect = watchEffect(() => {
+    console.log("🚀 ~ file: Person.vue:43watch ~ 一上来就执行")
+    if (testArray[0].age > 25) {
+        console.log(testArray[0].age);
+        testWeatchEffect()
+    }
+})
 
 
 

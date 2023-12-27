@@ -1,0 +1,5 @@
+export default{
+
+}// 默认暴露  
+  
+  分别暴露
