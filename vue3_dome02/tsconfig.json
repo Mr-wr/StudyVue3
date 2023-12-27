@@ -1,5 +1,8 @@
 {
   "files": [],
+  "compilerOptions": {
+    "types": ["pinia-plugin-persistedstate"]
+  },
   "references": [
     {
       "path": "./tsconfig.node.json"

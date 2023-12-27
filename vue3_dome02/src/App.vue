@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import Home from '@/components/Home.vue';
+
+localStorage.setItem('talkList',JSON.stringify(['我本已百毒不侵，偏偏你是第101种，而且无药可解。']))
 </script>
 
 <template>

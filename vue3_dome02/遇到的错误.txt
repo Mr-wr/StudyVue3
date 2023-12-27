@@ -1,0 +1,9 @@
+在使用pinia持久插件npm i pinia-plugin-persistedstate
+的时候一直都没有持久化
+原因是没有在在main.ts中
+app.use(createPinia().use(piniaPluginPersistedstate));
+步骤1、下载npm i pinia-plugin-persistedstate
+2、在main.ts中
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
+app.use(createPinia().use(piniaPluginPersistedstate));
+然后看官方文段就可以了

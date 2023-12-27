@@ -32,8 +32,13 @@ const router = createRouter({
       // }
     },
     {
+      path: '/pinia',
+      name: 'pinia',
+      component: () => import('../components/TestPinia.vue')
+    },
+    {
       path: '/',
-      redirect: '/home'
+      redirect: '/pinia'
     }
     // {
     //   path: '/about',
