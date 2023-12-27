@@ -20,6 +20,7 @@ let fullPerson = computed({
     }
 })
 fullPerson.vule = '改变计算属性的值'
+============
 三、监听watch
 1、watch
 监听对象时，要加deep,只改变对象的属性，拿到的旧值还是新的，因为地址还是指向了那个对象，只有改变了对象才会改变
@@ -40,8 +41,8 @@ let testWeatchEffect = watchEffect(() => {
         testWeatchEffect()
     }
 })
-
-
+============
+四、标签的ref属性
 
 
 

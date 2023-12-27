@@ -21,8 +21,28 @@ export default {
 </script>
 
 <script name="PersonVue"   lang="ts" setup>
-import test from 'node:test';
-import { ref, reactive, toRefs, computed, watchEffect } from 'vue'
+import { ref, reactive, toRefs, computed, watchEffect, withDefaults } from 'vue'
+import { type Persons } from "@/types"
+// let testinterface: Persons = [
+//     { id: '', name: '张三', age: 18 },
+//     { id: '', name: '李四', age: 19 },
+//     { id: '', name: '王五', age: 20 }
+
+// ]
+
+withDefaults(defineProps<{ list: Persons }>(), {
+    list: () => [
+        { id: '', name: '张三', age: 18 },
+        { id: '', name: '李四', age: 19 },
+        { id: '', name: '王五', age: 20 }
+    ]
+})
+// 直接用reactive传入泛型
+let testinterface = reactive<Persons>([
+    { id: '', name: '张三', age: 18 },
+    { id: '', name: '李四', age: 19 },
+    { id: '', name: '王五', age: 20 }
+])
 let testwatchref = ref({ name: '张三', age: 18 })
 // let presonA = reactive({ name: '张三', age: 18 })
 let testArray = reactive([{ name: '张三', age: 18 }, { name: '李四', age: 19 }, { name: '王五', age: 20 }])
@@ -84,6 +104,19 @@ function changePreson() {
     testArray.push(...a)
     console.log(testArray)
 }
+
+defineExpose({
+    name,
+    age,
+    changeName,
+    changeAge,
+    changePreson,
+    showTel,
+    fullPerson,
+    testArray,
+    testwatchref,
+    testWeatchEffect
+})
 </script>
 
 <style scoped>
