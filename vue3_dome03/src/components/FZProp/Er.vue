@@ -3,6 +3,7 @@
         <div>我是儿子</div>
         这是父亲传过来的:
         <div class="fater_data">{{ test }}</div>
+        <input @input="femits('test', (<HTMLInputElement>$event.target).value)" type="text" :value="erinputdata">
     </div>
 </template>
 <script lang='ts'>
@@ -13,11 +14,16 @@ export default {
 </script>
 <script  setup lang='ts'>
 import { onMounted } from 'vue';
+import emitter from '@/utils/emitter'
+
+
+// 使用mitt
 onMounted(() => {
     fprop.getToy("我是儿子传给父亲的数据")
+    emitter.emit('send-toy', '我是儿子传给父亲的数据emitter')
 })
-let fprop = defineProps(['test', 'getToy'])
-let femits = defineEmits(['send-toy'])
+let fprop = defineProps(['test', 'erinputdata', 'getToy'])
+let femits = defineEmits(['send-toy', 'test'])
 femits('send-toy', '我是儿子传给父亲的数据defineEmits')
 </script>
 <style lang='scss' scoped>
