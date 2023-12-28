@@ -3,7 +3,7 @@
         <div>我是儿子</div>
         这是父亲传过来的:
         <div class="fater_data">{{ test }}</div>
-        <input @input="femits('test', (<HTMLInputElement>$event.target).value)" type="text" :value="erinputdata">
+        <input @input="femits('test1', ($event.target as HTMLInputElement).value)" type="text" :value="erinputdata">
     </div>
 </template>
 <script lang='ts'>
@@ -13,18 +13,34 @@ export default {
 }
 </script>
 <script  setup lang='ts'>
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import emitter from '@/utils/emitter'
-
-
+let ename = ref('我是儿子')
 // 使用mitt
 onMounted(() => {
-    fprop.getToy("我是儿子传给父亲的数据")
     emitter.emit('send-toy', '我是儿子传给父亲的数据emitter')
+    femits('sendToy', '我是儿子传给父亲的数据defineEmits')
 })
-let fprop = defineProps(['test', 'erinputdata', 'getToy'])
-let femits = defineEmits(['send-toy', 'test'])
-femits('send-toy', '我是儿子传给父亲的数据defineEmits')
+defineProps({
+    test: {
+        type: String,
+        default: '我是儿子的默认数据',
+        required: false // 必传
+    },
+    erinputdata: String,
+})
+let femits = defineEmits(['test1', 'sendToy', 'getToy'])
+// femits('sendToy', '我是儿子传给父亲的数据defineEmits')
+
+defineExpose({
+    ename
+})
+
+
+
+
+
+
 </script>
 <style lang='scss' scoped>
 .er {

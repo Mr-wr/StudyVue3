@@ -1,1 +1,5 @@
-(<htmlinputelement></htmlinputelement>)
+($event.target as HTMLInputElement).value
+用于for循环
+function getAll(refs:{[key:string]:any}){
+    for (let key in refs){}
+}
