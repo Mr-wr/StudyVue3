@@ -1,7 +1,24 @@
 在使用pinia持久插件npm i pinia-plugin-persistedstate
 的时候一直都没有持久化
 原因是没有在在main.ts中
-app.use(createPinia().use(piniaPluginPersistedstate));
+import './assets/main.css'
+
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+// import { createPinia } from 'pinia'
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
+
+const pinia = createPinia()
+pinia.use(piniaPluginPersistedstate)
+import App from './App.vue'
+import router from './router'
+
+const app = createApp(App)
+
+app.use( createPinia())//这里没有把pinia 放进去==========================
+app.use(router)
+
+app.mount('#app')
 步骤1、下载npm i pinia-plugin-persistedstate
 2、在main.ts中
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
