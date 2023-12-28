@@ -2,7 +2,7 @@
 import mitt from 'mitt'
 
 // 创建emitter
-const emitter = mitt<any>()
+const emitter = mitt()
 
 /*
   // 绑定事件

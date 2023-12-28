@@ -1,12 +1,18 @@
 
 <template>
   <div>
-    <Fater />
+    <!-- <Fater /> -->
+    <F />
   </div>
 </template>
 
 <script name="" setup lang="ts">
-import Fater from "./components/FZProp/Fater.vue";
+// import Fater from "./components/FZProp/Fater.vue";
+import F from "./components/Refs&Parent/F.vue";
+
+
+
+
 </script>
 
 

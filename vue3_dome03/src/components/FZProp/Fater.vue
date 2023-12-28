@@ -8,9 +8,7 @@
         </div>
         <div>{{ erinputdata }}</div>
         <Er :erinputdata="erinputdata" @test1="erinputdata = $event" :test="Fadata" :getToy="getToy" @sendToy="saveToy" />
-        <!-- <Er></Er>
-        <Er></Er>
-        <Er></Er> -->
+
     </div>
 </template>
 <script lang='ts'>
@@ -43,7 +41,7 @@ function saveToy(data: string) {
 
 // })
 // 使用mitt
-emitter.on('send-toy', (value: string) => {
+emitter.on('send-toy', (value: any) => {
     console.log(1)
     erdata.value = value
 })
