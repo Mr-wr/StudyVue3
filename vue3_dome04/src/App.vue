@@ -3,6 +3,7 @@
 // import HelloWorld from './components/HelloWorld.vue'
 import useMsgRef from '@/utils/useMsgRef'
 let msg = useMsgRef("Hello World")
+
 console.log(msg)
 </script>
 
@@ -10,10 +11,18 @@ console.log(msg)
   <div>
     {{ msg }}
     <input type="text" v-model="msg">
+    <Teleport to="body">
+      <div class="testa">Teleport</div>
+    </Teleport>
   </div>
 </template>
 
 <style scoped>
+.testa {
+  position: fixed;
+  top: 0%
+}
+
 header {
   line-height: 1.5;
   max-height: 100vh;
