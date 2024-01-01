@@ -45,6 +45,15 @@ let testWeatchEffect = watchEffect(() => {
 四、标签的ref属性
 
 
+($event.target as HTMLInputElement).value
+用于for循环
+function getAll(refs:{[key:string]:any}){
+    for (let key in refs){}
+}
+
+作用域插槽可以直接结构{}=
+#插槽名字="你的数据的名字"
+
 
 
 
