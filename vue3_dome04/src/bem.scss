@@ -1,0 +1,38 @@
+$namespcae: 'xie' !default; // 命名空间
+$block-sel: '-' !default; // 块选择器
+$elem-sel: '__' !default; // 元素选择器
+$mod-sel: '--' !default; // 修饰符选择器
+
+@mixin block($name) {
+  $B: #{$namespcae}#{$block-sel}#{$name};
+  .#{$B} {
+    @content;
+  }
+}
+
+@mixin elem($name) {
+  $selector: &;
+  @at-root {
+    $E: #{$selector}#{$elem-sel}#{$name};
+    .#{$E} {
+      @content;
+    }
+  }
+}
+
+@mixin mod($name) {
+  $selector: &;
+  @at-root {
+    #{$selector}#{$mod-sel}#{$name} {
+      @content;
+    }
+  }
+}
+
+// 文字居中
+@mixin text-center($display, $height: 100%) {
+  display: $display;
+  justify-content: center;
+  align-items: center;
+  height: $height;
+}

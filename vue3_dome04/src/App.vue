@@ -1,87 +1,46 @@
 <script setup lang="ts">
-// import { RouterLink, RouterView } from 'vue-router'
-// import HelloWorld from './components/HelloWorld.vue'
-import useMsgRef from '@/utils/useMsgRef'
-let msg = useMsgRef("Hello World")
+import layout from "./layout/index.vue";
+import moment from 'moment'
+import cryptojs from 'crypto-js'
+import axios from "axios";
+function md5(address: any) {
+  const datetime = moment().format('YYYYMMDD')
+  const sign = cryptojs
+    .MD5(address + '.' + datetime)
+    .toString()
+    .substring(0, 10) // md5加密，取前10位
+  return sign
+}
+// console.log(md5('0x0d1d4e623d10f9fba5db95830f7d3839406c6af2'))
+// let { data } = await axios.post('/api/User/login', {
+//   address: '0x0d1d4e623d10f9fba5db95830f7d3839406c6af2',
+//   sign: md5('0x0d1d4e623d10f9fba5db95830f7d3839406c6af2'),
+//   code: ''
+// })
+axios({
+  method: 'post',
+  url: 'api/User/loging',
+  headers: {
+    // 'Content-Type': 'application/json',
+    'Content-Type': 'application/x-www-form-urlencoded',
+  },
+  data: {
+    address: '0x0d1d4e623d10f9fba5db95830f7d3839406c6af2',
+    sign: md5('0x0d1d4e623d10f9fba5db95830f7d3839406c6af2'),
+    code: ''
+  }
+}).then(resp => {
+  console.log(resp)
+}).catch(err => {
+  console.log(err.response.data)
+})
+// console.log("🚀 ~ file: App.vue:19 ~ data:", data)
 
-console.log(msg)
+// let { data: { content: title } } = await axios.get('http://api-ranch.nnmm666.com/h5')
 </script>
 
 <template>
-  <div>
-    {{ msg }}
-    <input type="text" v-model="msg">
-    <Teleport to="body">
-      <div class="testa">Teleport</div>
-    </Teleport>
-  </div>
+  <layout></layout>
 </template>
 
-<style scoped>
-.testa {
-  position: fixed;
-  top: 0%
-}
-
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
-</style>
+<style lang="scss" scoped></style>
