@@ -9,3 +9,6 @@ let a:Array<Person>这样是告诉里面具体内容是这个
 解释：我要定义一个a是一个数组，并且数组里面每一个对象都要符合Person接口规范
 a.item?.b ?? []
 ??只有左边是undefault，null才会使用右边的值
+import { getCurrentInstance } from 'vue' //获取当前组件的实例
+let instace = getCurrentInstance()
+instace?.proxy?.$Bus//获取总线

@@ -14,6 +14,8 @@ export default {
 </script>
 <script  setup lang='ts'>
 import { ref } from 'vue'
+// let instace = getCurrentInstance()
+// instace?.proxy
 let count = ref(0)
 const add = () => {
     count.value++
