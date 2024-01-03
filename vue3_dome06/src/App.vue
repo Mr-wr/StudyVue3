@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
+let testa = ref(0)
 </script>
 
 <template>
   <header>
+    {{ testa }}
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
+    <el-button type="primary">afds</el-button>
+    <el-text class="mx-1" type="success">Warning</el-text>
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
     </div>

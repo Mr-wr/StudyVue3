@@ -12,3 +12,34 @@ a.item?.b ?? []
 import { getCurrentInstance } from 'vue' //获取当前组件的实例
 let instace = getCurrentInstance()
 instace?.proxy?.$Bus//获取总线
+在父组件想改子组件样式使用:slotted(.a){}
+全局:global(div){}
+动态选择器 
+let red = ref('red')
+.div{
+color:v-bind(red)
+}
+// 对象
+const sty = reactive({color:'red'})
+.div{
+color:v-bind('sty ')
+}
+// 动态<style lang='scss' module="zs"></style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
