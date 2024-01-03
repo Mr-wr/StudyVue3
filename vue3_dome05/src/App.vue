@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import Lazy from './components/Lazy.vue';
+import TestResize from './components/TestResize.vue';
+// import Lazy from './components/Lazy.vue';
 // import ZhiDingYiMingLin from './components/ZhiDingYiMingLin.vue';
 // import SwitchComponent from './components/SwitchComponent.vue';
 </script>
 
 <template>
-  <Lazy></Lazy>
+  <TestResize></TestResize>
+  <!-- <Lazy></Lazy> -->
   <!-- <SwitchComponent></SwitchComponent> -->
   <!-- <ZhiDingYiMingLin></ZhiDingYiMingLin> -->
 </template>
