@@ -25,10 +25,14 @@ const sty = reactive({color:'red'})
 color:v-bind('sty ')
 }
 // 动态<style lang='scss' module="zs"></style>
+宏任务和微任务哪个先执行
+先宏任务（正常代码也算是宏任务）后微任务
+await Prmise.resolve()
+// 这下面的代码也算是.then里面执行的
+console.log('我是微任务')
 
-
-
-
+vue跟新dom是异步的，有什么好处呢，如果一个dom要改变9999是那是不是要跟新dom999次，异步的化
+直接监听到最后一次就可以了，代价就是操作dom的时候要放在一个微任务里面
 
 
 
