@@ -55,9 +55,12 @@ function getAll(refs:{[key:string]:any}){
 #插槽名字="你的数据的名字"
 ===============
 动态组件（尽量使用对象，性能高，写字符串还要判断）
+pinia
+storeToRefs======================结构
 
 
-
-
+$subscribe((args,state)=>{},{detached:true}) // detached:true在组件销毁后也监听================================改变的了state的时候触发
+$reset()
+$onA((args)=>{},true)//true在组件销毁后也监听 // args.after(()=>)在代码运行完之后调用
 
 
