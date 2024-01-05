@@ -9,3 +9,7 @@
 export function test1fn() {
   console.log('test1fn')
 }
+
+export default {
+  test1fn
+}

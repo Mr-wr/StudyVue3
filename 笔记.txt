@@ -87,6 +87,12 @@ declare module 'vue-router' {
 #default="{route,Component}"
 可以解构出当前的route、和Component
 路由滚动
+router.addRoute(item)通过addRoute添加新的路由只能一个一个添加类型是RouteRecordRaw
+如果添加的路由名字一样的话会被替换掉只会添加最后一个======我这个问题搞了好久
+而且不能手动跳转到新加的界面只能.push的方式进行跳转，而且刷新界面就不行了
+
+
+
 
 
 const router = createRouter({

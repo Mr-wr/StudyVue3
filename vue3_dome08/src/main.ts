@@ -2,7 +2,7 @@
  * @Author: xie 1434687824@qq.com
  * @Date: 2024-01-04 19:28:14
  * @LastEditors: xie 1434687824@qq.com
- * @LastEditTime: 2024-01-04 20:07:24
+ * @LastEditTime: 2024-01-05 15:12:20
  * @FilePath: \vue3_dome08\src\main.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -12,7 +12,7 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
 import App from './App.vue'
-import router from './router'
+import {router} from './router'
 // 插件
 import mitt from 'mitt'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'

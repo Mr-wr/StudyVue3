@@ -3,3 +3,8 @@ export function testfn() {
 }
 
 export const a = ref(1)
+
+export default {
+  a,
+  testfn
+}
