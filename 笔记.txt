@@ -63,4 +63,65 @@ $subscribe((args,state)=>{},{detached:true}) // detached:true在组件销毁后�
 $reset()
 $onA((args)=>{},true)//true在组件销毁后也监听 // args.after(()=>)在代码运行完之后调用
 
+============
+路由
+嵌套路由
+嵌套路由如果子路由想默认是那个，对应的那个子路由可以不用写path
+跳转的时候需要添加父路由路径path
+使用别的路径也跳到这个组件alias:['/test']
+路由元信息，如果获取title爆错的话加上
+declare module 'vue-router' {
+  interface RouteMeta {
+    title?: string
+  }
+}
+
+
+<router-view #default="{route,Component}">
+        <transition  :enter-active-class="`animate__animated ${route.meta.transition}`">
+            <component :is="Component"></component>
+        </transition>
+    </router-view>
+
+
+#default="{route,Component}"
+可以解构出当前的route、和Component
+路由滚动
+
+
+const router = createRouter({
+  history: createWebHistory(),
+  scrollBehavior: (to, from, savePosition) => {
+    console.log(to, '==============>', savePosition);
+    return new Promise((r) => {
+      setTimeout(() => {
+        r({
+          top: 10000
+        })
+      }, 2000);
+    })
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
