@@ -110,11 +110,20 @@ const router = createRouter({
 
 
 
-
-
-
-
-
+===============================项目===================================================================
+一、配置项
+1、git 提交声明规范、自动格式化文件格式规范
+2、npm安装源规范
+二、svg图标  npm i vite-plugin-svg-icons -D
+在vite.config.ts中
+//引入svg需要用到插件
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
+import path from 'path'
+plugins: [vue(),
+    createSvgIconsPlugin({
+      iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
+      symbolId: 'icon-[dir]-[name]',
+    }),
 
 
 

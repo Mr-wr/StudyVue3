@@ -1,19 +1,3 @@
-/*
- * @Author: xie 1434687824@qq.com
- * @Date: 2024-01-04 19:28:14
- * @LastEditors: xie 1434687824@qq.com
- * @LastEditTime: 2024-01-05 22:13:31
- * @FilePath: \vue3_dome08\src\router\index.ts
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- */
-/*
- * @Author: xie 1434687824@qq.com
- * @Date: 2024-01-04 19:28:14
- * @LastEditors: xie 1434687824@qq.com
- * @LastEditTime: 2024-01-05 17:09:39
- * @FilePath: \vue3_dome08\src\router\index.ts
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- */
 import { createRouter, createWebHistory, useRouter } from 'vue-router'
 import fileModule from '@/stores'
 import { updateRouter } from '@/hooks/modules/updateRouter'
@@ -69,7 +53,7 @@ const asyncRouterMap = [
   },
   {
     path: '/super_editor',
-    component: () => import('@/components/super_editor.vue'),
+    component: () => import('@/components/Super_editor.vue'),
     name: '权限测试2',
     meta: { role: ['admin'] } // 页面需要的权限
   }

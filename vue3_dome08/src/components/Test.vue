@@ -6,7 +6,7 @@
 <script lang='ts'>
 export default {
     //eslint-disable-next-line
-    name: '',
+    name: 'Test',
 }
 </script>
 <script  setup lang='ts'>

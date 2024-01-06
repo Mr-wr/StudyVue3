@@ -7,14 +7,14 @@
 <script lang='ts'>
 export default {
     //eslint-disable-next-line
-    name: '',
+    name: 'Login',
 }
 </script>
 <script  setup lang='ts'>
 import { useUser } from "@/stores/modules/user"
 import { usePermission } from "@/stores/modules/permission"
 import { updateRouter } from '@/hooks/modules/updateRouter'
-import { useRoute, useRouter } from "vue-router";
+import { useRouter } from "vue-router"
 const router = useRouter()
 const userStore = useUser()
 const permissionStore = usePermission()

@@ -13,8 +13,8 @@ let a = modules.a
 // pinia使用======================================pinia使用
 // import { storeToRefs } from "pinia";
 import storeMo from "./stores";
-const { useUser, usePermission, } = storeMo
-const user = useUser()
+const { usePermission, } = storeMo
+// const user = useUser()
 
 const counter1 = usePermission()
 counter1.test++
