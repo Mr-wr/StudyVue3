@@ -1,6 +1,19 @@
 @import './base.css';
-/* 
-#app {
+/* //滚动条外观设置
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: $base-menu-background;
+}
+
+::-webkit-scrollbar-thumb{
+    width: 10px;
+    background-color: yellowgreen;
+    border-radius: 10px;
+} */
+/* #app {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;

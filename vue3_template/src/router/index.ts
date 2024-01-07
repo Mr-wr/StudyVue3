@@ -23,43 +23,43 @@ const constantRouterMap = [
   {
     path: '/home',
     name: 'Home',
-    component: () => import('@/views/HomeView.vue')
+    component: () => import('@/components/Home.vue')
   },
-  // {
-  //   path: '/login',
-  //   name: 'Login',
-  //   component: () => import('@/components/Login.vue')
-  // },
-  // {
-  //   path: '/:pathMatch(.*)*',
-  //   component: () => import('@/components/Error.vue')
-  // }
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import('@/components/Login.vue')
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    component: () => import('@/components/Error.vue')
+  }
 ]
 // import { store } from '@/stores/counter'
 const asyncRouterMap = [
-  // {
-  //   path: '/form',
-  //   component: () => import('@/components/From.vue'),
-  //   name: '权限测试',
-  //   meta: { role: ['super_editor'] }, // 页面需要的权限
-  //   children: [
-  //     {
-  //       path: 'index',
-  //       component: () => import('@/components/Test.vue'),
-  //       name: '权限测试页',
-  //       meta: { role: ['super_editor'], title: 'Form', icon: 'form' } // 页面需要的权限
-  //     }
-  //   ]
-  // },
-  // {
-  //   path: '/super_editor',
-  //   component: () => import('@/components/Super_editor.vue'),
-  //   name: '权限测试2',
-  //   meta: { role: ['admin'] } // 页面需要的权限
-  // }
+  {
+    path: '/form',
+    component: () => import('@/components/From.vue'),
+    name: '权限测试',
+    meta: { role: ['super_editor'] }, // 页面需要的权限
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/components/Test.vue'),
+        name: '权限测试页',
+        meta: { role: ['super_editor'], title: 'Form', icon: 'form' } // 页面需要的权限
+      }
+    ]
+  },
+  {
+    path: '/super_editor',
+    component: () => import('@/components/Super_editor.vue'),
+    name: '权限测试2',
+    meta: { role: ['admin'] } // 页面需要的权限
+  }
   // { path: '*', redirect: '/404', hidden: true }
 ]
-const whiteList = ['/login','/home']
+const whiteList = ['/login', '/home']
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -87,15 +87,8 @@ router.beforeEach((to, from, next) => {
             const roles = res.roles
             updateRouter({ roles }, router).then(() => {
               next({ ...to, replace: true })
-              console.log(router.getRoutes())
+              // console.log(router.getRoutes())
             })
-            // storusePermission.GenerateRoutes({ roles }).then(() => {
-            //   // 生成可访问的路由表
-            //   router.addRoute(storusePermission.addRouters as any) // 动态添加可访问路由表
-
-            //   next({ ...to, replace: true }) // hack方法 确保addRoutes已完成 ,设置替换： true，这样导航就不会留下历史记录了
-            //   // debugger
-            // })
           })
           .catch((err: any) => {
             console.log(err)
