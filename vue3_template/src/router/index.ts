@@ -2,12 +2,12 @@ import { createRouter, createWebHistory } from 'vue-router'
 import fileModule from '@/stores'
 import { updateRouter } from '@/hooks/modules/updateRouter'
 // const storePermission = usePermission()
-// declare module 'vue-router' {
-//   interface RouteMeta {
-//     title?: string
-//     role?: Array<string>
-//   }
-// }
+declare module 'vue-router' {
+  interface RouteMeta {
+    title?: string
+    role?: Array<string>
+  }
+}
 // export const constantRouterMap: Array<{
 //   path?: string
 //   component?: () => Promise<any>
@@ -23,15 +23,19 @@ const constantRouterMap = [
   {
     path: '/home',
     name: 'Home',
+    title: '首页',
     component: () => import('@/components/Home.vue')
   },
   {
     path: '/login',
     name: 'Login',
+    title: '登入',
     component: () => import('@/components/Login.vue')
   },
   {
     path: '/:pathMatch(.*)*',
+    name: 'Error',
+    title: '错误',
     component: () => import('@/components/Error.vue')
   }
 ]
@@ -41,13 +45,24 @@ const asyncRouterMap = [
     path: '/form',
     component: () => import('@/components/From.vue'),
     name: '权限测试',
+    title: '权限测试super_editor',
     meta: { role: ['super_editor'] }, // 页面需要的权限
     children: [
       {
         path: 'index',
         component: () => import('@/components/Test.vue'),
+        title: '权限测试页super_editor',
         name: '权限测试页',
-        meta: { role: ['super_editor'], title: 'Form', icon: 'form' } // 页面需要的权限
+        meta: { role: ['super_editor'], title: 'Form', icon: 'form' }, // 页面需要的权限
+        children: [
+          {
+            path: 'index2',
+            component: () => import('@/components/Test.vue'),
+            title: '权限测试页super_editor2',
+            name: '权限测试页2',
+            meta: { role: ['super_editor'], title: 'Form2', icon: 'form2' } // 页面需要的权限
+          }
+        ]
       }
     ]
   },
@@ -55,6 +70,7 @@ const asyncRouterMap = [
     path: '/super_editor',
     component: () => import('@/components/Super_editor.vue'),
     name: '权限测试2',
+    title: '权限测试admin',
     meta: { role: ['admin'] } // 页面需要的权限
   }
   // { path: '*', redirect: '/404', hidden: true }

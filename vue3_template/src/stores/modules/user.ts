@@ -7,7 +7,7 @@
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 import { defineStore } from 'pinia'
-import user from '@/api/user'
+import { login } from '@/api/user'
 import { md5 } from '@/utils/utils'
 export const useUser = defineStore('user', {
   state: () => {
@@ -24,7 +24,7 @@ export const useUser = defineStore('user', {
     },
     async getUserInfo(): Promise<any> {
       try {
-        const res = await user.login({
+        const res = await login({
           address: '0x238e54bb17796e01884a591460157768c5f95296',
           sign: md5('0x238e54bb17796e01884a591460157768c5f95296'),
           code: ''
